@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   flex-wrap: nowrap;
   gap: 16px;
   border-radius: 16px;
+  cursor: pointer;
 
   header {
     flex: 1;
@@ -33,13 +34,14 @@ const Logo = styled.img`
 `;
 
 interface ILoginButtonProps {
+  onClick?: () => void;
   src: string;
   text: string;
 }
 
-function LoginButton({ src, text }: ILoginButtonProps) {
+function LoginButton({ onClick, src, text }: ILoginButtonProps) {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <Logo src={src} />
       <header>{text}</header>
     </Wrapper>
