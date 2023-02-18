@@ -1,11 +1,17 @@
-import LoginButton from "./LoginButton";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
 function GoogleLoginButton() {
   return (
-    <LoginButton
-      src="https://logo.clearbit.com/Google.com?size=500"
-      text="Google 계정으로 로그인"
-    />
+    <GoogleOAuthProvider clientId="670154900312-tqtanvlmi26hp9c453q22439qbfeiqsp.apps.googleusercontent.com">
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          console.log(credentialResponse);
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+      />
+    </GoogleOAuthProvider>
   );
 }
 
